@@ -1,7 +1,7 @@
 data "template_file" "my-configmap" {
   template = "${file("manifests/my-configmap.yaml")}"
 
-  vars {
+  vars = {
     greeting = "${var.greeting}"
   }
 }
@@ -13,7 +13,7 @@ resource "k8s_manifest" "my-configmap" {
 data "template_file" "nginx-deployment" {
   template = "${file("manifests/nginx-deployment.yaml")}"
 
-  vars {
+  vars = {
     replicas = "${var.replicas}"
   }
 }
